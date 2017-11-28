@@ -7,6 +7,7 @@ import Charts from '@/components/dtcharts/Dtcharts.vue'
 import Ui from '@/components/dtui/Dtui.vue'
 import Table from '@/components/dttable/Dttable.vue'
 import Forms from '@/components/dtforms/Dtforms.vue'
+import Quxiantu from '@/components/dtdashboard/Dtquxiantu.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ export default new Router({
         {
           path: '/dashboard',
           component: Dashboard
+        },
+        {
+          path: '/quxiantu',
+          component: Quxiantu
         },
         {
           path: '/inbox',
