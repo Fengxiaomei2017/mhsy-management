@@ -10,9 +10,9 @@
 </template>
 <script>
   import {biaoti} from '@/common/js/data.js'
-  import Zuocedaohang from '@/components/dtcommon/Dtzuocedaohang'
-  import Contentbt from '@/components/dtcontentbt/Dtcontentbt.vue'
-  import Separaror from '@/components/dtseparator/Dtseparator.vue'
+  import Zuocedaohang from './Dtzuocedaohang'
+  import Contentbt from './Dtcontentbt.vue'
+  import Separaror from './Dtseparator.vue'
   export default {
     data () {
       return {

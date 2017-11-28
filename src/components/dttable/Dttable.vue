@@ -12,7 +12,7 @@
   import Simpletable from './Dtsimpletable.vue'
   import Resizetable from './Dtresizetable.vue'
   import Checkboxtable from './Dtcheckboxtable.vue'
-  import Separaror from '@/components/dtseparator/Dtseparator.vue'
+  import Separaror from '@/components/dtcommon/Dtseparator.vue'
   import Tabstable from './Dttabstable.vue'
   import Datatable from './Dtdatatable.vue'
   export default{
