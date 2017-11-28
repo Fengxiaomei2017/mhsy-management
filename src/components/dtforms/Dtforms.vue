@@ -1,10 +1,15 @@
 <template>
-  <div>
-    forms页面
+  <div class='forms'>
+    <Valform></Valform>
   </div>
 </template>
 <script>
-  export default{}
+  import Valform from './Dtvalform.vue'
+  export default{
+    components: {
+      Valform
+    }
+  }
 </script>
 <style scoped>
 
