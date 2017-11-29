@@ -14,7 +14,7 @@
   require('echarts/lib/component/title')
   require('echarts/lib/component/markPoint')
   require('echarts/lib/component/markLine')
-  // require('echarts/lib/component/legendScroll')
+  require('echarts/lib/component/legendScroll')
   export default {
     data () {
       return {

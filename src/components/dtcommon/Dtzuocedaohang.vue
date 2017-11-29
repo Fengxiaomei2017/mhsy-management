@@ -57,13 +57,13 @@
 </script>
 <style scoped>
   .zuocedh ul {
-    flex: 0 0 18%;
+    width: 100%;
     font-size: 1.2rem;
   }
   .zuocedh ul li {
     position: relative;
     height: 40px;
-    padding: 20px 8px;
+    padding: 20px 5px;
     align-items: center;
   }
   .changeColor {

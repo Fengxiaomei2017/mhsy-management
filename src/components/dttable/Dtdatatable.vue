@@ -11,7 +11,7 @@
                   id='search'></li>
         <li>
           <label>Show entries</label>
-          <select>
+          <select v-model='selected'>
             <option v-for='item in pagenum'
                     :value='item'>{{item}}</option>
           </select>
@@ -31,9 +31,9 @@
         </p>
         <ul class='table_qiehuan'>
           <li>第一页</li>
-          <li>上一页</li>
+          <li @click='prepage'>上一页</li>
           <li v-for='item in page'>{{item}}</li>
-          <li>下一页</li>
+          <li @click='nextpage'>下一页</li>
           <li>最后一页</li>
         </ul>
       </div>
@@ -46,11 +46,13 @@
       return {
         data_tr: ['Rendering engine', 'Browser', 'Platform', 'CSS grade'],
         pagenum: [10, 25, 50, 100],
+        oldalldata: [],
         alldata: [],
         beginnum: 1,
         overnum: 10,
         page: 5,
-        total: 15
+        total: 15,
+        selected: 10
       }
     },
     mounted () {
@@ -60,7 +62,22 @@
     },
     methods: {
       getalldata: function () {
-        this.alldata = datatable()
+        this.oldalldata = datatable()
+        this.getpagedata()
+      },
+      getpagedata: function () {
+        this.alldata = this.oldalldata.slice(0, this.selected)
+      },
+      nextpage: function () {
+        this.alldata = this.oldalldata.slice()
+      },
+      prepage: function () {
+        this.alldata = this.oldalldata.slice()
+      }
+    },
+    watch: {
+      selected () {
+        this.getpagedata(this.selected)
       }
     }
   }
