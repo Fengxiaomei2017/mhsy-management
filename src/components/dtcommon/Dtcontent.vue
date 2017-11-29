@@ -1,6 +1,6 @@
 <template>
   <div class='content'>
-    <Zuocedaohang v-on:jiantingdh='getdhvalue'></Zuocedaohang>
+    <Zuocedaohang class='left_content' v-on:jiantingdh='getdhvalue'></Zuocedaohang>
     <div class='right_content'>
       <Contentbt :biaotishuju='biaotishuju'></Contentbt>
       <Separaror></Separaror>
@@ -40,9 +40,11 @@
     display: flex;
     width: 80%;
     min-width: 999px;
-    /*height: 100vh;*/
     margin: 0 auto 20px auto;
     overflow: hidden;
+  }
+  .content .left_content {
+    flex: 0 0 15%;
   }
   .content .right_content {
     flex: 1;
