@@ -13,16 +13,19 @@
           <label>Show entries</label>
           <select v-model='selected'>
             <option v-for='item in pagenum'
+                    :key='item'
                     :value='item'>{{item}}</option>
           </select>
         </li>
       </ul>
       <table>
         <tr>
-          <th v-for='item in data_tr'>{{item}}</th>
+          <th v-for='item in data_tr'
+              :key='item'>{{item}}</th>
         </tr>
         <tr v-for='item in alldata'>
-          <td v-for='value in item'>{{value}}</td>
+          <td v-for='value in item'
+              :key='value'>{{value}}</td>
         </tr>
       </table>
       <div class='data_bottom'>
@@ -30,11 +33,14 @@
           Showing {{beginnum}} to {{overnum}} of {{total}} entries
         </p>
         <ul class='table_qiehuan'>
-          <li>第一页</li>
+          <li @click='firstpage'>第一页</li>
           <li @click='prepage'>上一页</li>
-          <li v-for='item in page'>{{item}}</li>
+          <li v-if='allpage'
+              v-for='(item, index) in allpage'
+              :key='item'
+              @click='qiehuanpage(index)'>{{item}}</li>
           <li @click='nextpage'>下一页</li>
-          <li>最后一页</li>
+          <li @click='endpage'>最后一页</li>
         </ul>
       </div>
   </div>
@@ -50,29 +56,75 @@
         alldata: [],
         beginnum: 1,
         overnum: 10,
-        page: 5,
         total: 15,
-        selected: 10
+        selected: 10,
+        beginpage: 0,
+        overpage: 0,
+        allpage: 1
       }
     },
     mounted () {
       this.$nextTick(() => {
         this.getalldata()
+        this.getallpage()
       })
+    },
+    computed: {
+      endpagetoubu: function () {
+        return (parseInt(this.oldalldata.length / this.selected) * this.selected)
+      },
+      nextpagetoubu: function () {
+        return this.beginpage + this.selected
+      },
+      nextpageweibu: function () {
+        return this.beginpage + this.selected
+      },
+      prepagetoubu: function () {
+        return this.overpage - this.selected
+      },
+      aginnextpagetoubu: function () {
+        return this.overpage + this.selected
+      }
     },
     methods: {
       getalldata: function () {
         this.oldalldata = datatable()
         this.getpagedata()
+        this.beginpage = this.selected
+      },
+      getallpage: function () {
+        this.allpage = Math.ceil(this.oldalldata.length / this.selected) - 1
       },
       getpagedata: function () {
         this.alldata = this.oldalldata.slice(0, this.selected)
       },
       nextpage: function () {
-        this.alldata = this.oldalldata.slice()
+        this.alldata = this.oldalldata.slice(this.beginpage, this.nextpageweibu)
+        this.overpage = this.beginpage
+        this.beginpage = this.nextpagetoubu
+        if (this.beginpage > this.oldalldata.length) {
+          this.beginpage = this.oldalldata.length - 1
+        }
       },
       prepage: function () {
-        this.alldata = this.oldalldata.slice()
+        this.alldata = this.oldalldata.slice(this.prepagetoubu, this.overpage)
+        this.overpage = this.prepagetoubu
+        this.beginpage = this.aginnextpagetoubu
+        if (this.overpage <= this.selected) {
+          this.overpage = this.selected
+        }
+        console.log('开始位置:' + this.aginnextpagetoubu)
+        console.log('结束位置：' + this.overpage)
+      },
+      firstpage: function () {
+        this.getpagedata()
+      },
+      endpage: function () {
+        console.log(this.endpagetoubu)
+        this.alldata = this.oldalldata.slice(this.endpagetoubu)
+      },
+      qiehuanpage: function (index) {
+        this.alldata = this.oldalldata.slice(this.selected * index, this.selected * (index + 1))
       }
     },
     watch: {
@@ -204,5 +256,10 @@
     text-shadow: 0 1px 0 #fff;
     box-shadow: 0 2px 3px #EAEAEA;
     cursor: pointer;
+  }
+  .data_bottom .table_qiehuan li:hover {
+    font-weight: bold;
+    color: #6E83A5;
+    border: 1px solid #6E83A5;
   }
 </style>
