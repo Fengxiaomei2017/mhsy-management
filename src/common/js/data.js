@@ -279,7 +279,7 @@ export function formdata (bianma) {
         'yuming': 'Nickname'
       }, {
         'radio': true,
-        'yuming': 'Sex',
+        'yuming': 'Xingbie',
         'option': ['男', '女']
       }, {
         'checkbox': true,
@@ -307,7 +307,7 @@ export function formdata (bianma) {
       }, {
         'yuming': 'Yonghubianma'
       }, {
-        'yuming': 'Openid'
+        'yuming': 'OpenId'
       }
     ],
     'Shebeizhuangtai': [
@@ -340,7 +340,7 @@ export function formdata (bianma) {
       }, {
         'yuming': 'Xuliehao'
       }, {
-        'yuming': 'Openid'
+        'yuming': 'OpenId'
       }
     ],
     'Shebei': [
