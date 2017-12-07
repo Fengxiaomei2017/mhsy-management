@@ -154,6 +154,12 @@ export function datatable () {
       'Browser': 'Explorer 5.5',
       'Platform': 'Win XP',
       'CSS grade': 'A'
+    },
+    {
+      'Rendering engine': 'Gecko',
+      'Browser': 'Camino 1.5',
+      'Platform': 'OSX.3+',
+      'CSS grade': 'A'
     }
   ]
   return all
@@ -191,4 +197,186 @@ export function xietangshuju (bianma) {
     }
   }
   return allshuju[bianma]
+}
+
+export function formdata (bianma) {
+  let yonghushuju = {
+    'Yonghuxinxi': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Yonghubianma'
+      }, {
+        'yuming': 'Nianling'
+      }, {
+        'yuming': 'Dizhi'
+      }, {
+        'radio': true,
+        'yuming': 'Xingbie',
+        'option': ['男', '女']
+      }, {
+        'yuming': 'Tijian'
+      }, {
+        'yuming': 'Qidong'
+      }, {
+        'yuming': 'Beizhu'
+      }
+    ],
+    'Yonghu': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Yonghubianma'
+      }, {
+        'yuming': 'Mingcheng'
+      }, {
+        'yuming': 'Email'
+      }, {
+        'yuming': 'Shoujihao'
+      }
+    ],
+    'Yinpinshuju': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Riqi'
+      }, {
+        'yuming': 'Yonghubianma'
+      }, {
+        'yuming': 'Shujubianma'
+      }, {
+        'yuming': 'Biaoji'
+      }, {
+        'yuming': 'Xueya'
+      }, {
+        'yuming': 'Xuetang'
+      }, {
+        'yuming': 'Zaoxuetang'
+      }, {
+        'yuming': 'Wuxuetang'
+      }, {
+        'yuming': 'Wanxuetang'
+      }, {
+        'yuming': 'Ganyousanzhi'
+      }, {
+        'yuming': 'Gaomiduzhidanbai'
+      }, {
+        'yuming': 'Tizhong'
+      }, {
+        'yuming': 'Shengao'
+      }, {
+        'yuming': 'Xueniaosuan'
+      }, {
+        'yuming': 'Beizhu'
+      }
+    ],
+    'Weixinzhanghao': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'OpenId'
+      }, {
+        'yuming': 'Nickname'
+      }, {
+        'radio': true,
+        'yuming': 'Sex',
+        'option': ['男', '女']
+      }, {
+        'checkbox': true,
+        'yuming': 'Country',
+        'option': ['中国', '澳大利亚', '俄罗斯']
+      }, {
+        'checkbox': true,
+        'yuming': 'Province',
+        'option': ['四川省', '广东省', '江苏省']
+      }, {
+        'checkbox': true,
+        'yuming': 'City',
+        'option': ['成都市', '深圳市', '上海市']
+      }, {
+        'yuming': 'HeadImageURL'
+      }, {
+        'yuming': 'Privilege'
+      }, {
+        'yuming': 'UnionId'
+      }
+    ],
+    'Weixinyonghu': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Yonghubianma'
+      }, {
+        'yuming': 'Openid'
+      }
+    ],
+    'Shebeizhuangtai': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Xuliehao'
+      }, {
+        'yuming': 'Maichu'
+      }, {
+        'yuming': 'Ruwang'
+      }, {
+        'yuming': 'Yinpinriqi'
+      }, {
+        'yuming': 'Tixing'
+      }
+    ],
+    'Shebeiyonghu': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Xuliehao'
+      }, {
+        'yuming': 'Yonghubianma'
+      }
+    ],
+    'Shebeiweixin': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Xuliehao'
+      }, {
+        'yuming': 'Openid'
+      }
+    ],
+    'Shebei': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Xuliehao'
+      }, {
+        'yuming': 'Macdizhi'
+      }, {
+        'yuming': 'Pici'
+      }
+    ],
+    'Richangshuju': [
+      {
+        'yuming': 'Id'
+      }, {
+        'yuming': 'Yonghubianma'
+      }, {
+        'yuming': 'Tianshu'
+      }, {
+        'yuming': 'Riqi'
+      }, {
+        'yuming': 'Xuetang'
+      }, {
+        'yuming': 'Zaoxuetang'
+      }, {
+        'yuming': 'Wuxuetang'
+      }, {
+        'yuming': 'Wanxuetang'
+      }, {
+        'yuming': 'Tizhong'
+      }, {
+        'yuming': 'Beizhu'
+      }
+    ]
+  }
+  return yonghushuju[bianma]
 }
