@@ -8,6 +8,7 @@ import Ui from '@/components/dtui/Dtui.vue'
 import Table from '@/components/dttable/Dttable.vue'
 import Forms from '@/components/dtforms/Dtforms.vue'
 import Quxiantu from '@/components/dtdashboard/Dtquxiantu.vue'
+import Yonghuxinxi from '@/components/dtformslist/Dtyonghuxinxi.vue'
 
 Vue.use(Router)
 
@@ -49,6 +50,10 @@ export default new Router({
         {
           path: '/forms',
           component: Forms
+        },
+        {
+          path: '/yonghuxinxi',
+          component: Yonghuxinxi
         }
       ]
     }
