@@ -8,7 +8,8 @@
         <li>
           <label for='search'>Search:</label>
           <input  type='text'
-                  id='search'></li>
+                  id='search'
+                  v-model='search'></li>
         <li>
           <label>Show entries</label>
           <select v-model='selected'>
@@ -23,7 +24,7 @@
           <th v-for='item in data_tr'
               :key='item'>{{item}}</th>
         </tr>
-        <tr v-for='item in alldata'>
+        <tr v-for='item in list'>
           <td v-for='value in item'
               :key='value'>{{value}}</td>
         </tr>
@@ -60,10 +61,11 @@
         selected: 10,
         beginpage: 0,
         overpage: 0,
-        allpage: 1
+        allpage: 1,
+        search: ''
       }
     },
-    mounted () {
+    mounted: function () {
       this.$nextTick(() => {
         this.getalldata()
         this.getallpage()
@@ -84,11 +86,22 @@
       },
       aginnextpagetoubu: function () {
         return this.overpage + this.selected
+      },
+      // 查询功能
+      list: function () {
+        var arr = []
+        for (let i = 0; i < this.alldata.length; i++) {
+          if (this.alldata[i].Renderingengine.indexOf(this.search) !== -1) {
+            arr.push(this.alldata[i])
+          }
+        }
+        return arr
       }
     },
     methods: {
       getalldata: function () {
         this.oldalldata = datatable()
+        // console.log(this.oldalldata)
         this.getpagedata()
         this.beginpage = this.selected
       },
