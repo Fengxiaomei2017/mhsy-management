@@ -101,7 +101,6 @@
     methods: {
       getalldata: function () {
         this.oldalldata = datatable()
-        // console.log(this.oldalldata)
         this.getpagedata()
         this.beginpage = this.selected
       },
@@ -126,8 +125,6 @@
         if (this.overpage <= this.selected) {
           this.overpage = this.selected
         }
-        console.log('开始位置:' + this.aginnextpagetoubu)
-        console.log('结束位置：' + this.overpage)
       },
       firstpage: function () {
         this.getpagedata()
