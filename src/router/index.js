@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/dtcommon/Dthome'
+import Denglu from '@/components/dtcommon/Dtdenglu.vue'
+import Home from '@/components/dtcommon/Dthome.vue'
 import Dashboard from '@/components/dtdashboard/Dtdashboard.vue'
 import Inbox from '@/components/dtinbox/Dtinbox.vue'
 import Charts from '@/components/dtcharts/Dtcharts.vue'
@@ -17,7 +18,11 @@ export default new Router({
     {
       path: '/',
       name: 'default',
-      redirect: '/dashboard'
+      redirect: '/denglu'
+    },
+    {
+      path: '/denglu',
+      component: Denglu
     },
     {
       path: '/home',
